@@ -14,37 +14,57 @@ const Home = ({ data, setEditIndex }) => {
     navigate("/form");
   };
 
-  const style = {
-    borderTop: "2px solid #6a6a6a5d",
-    padding: "1px 0px",
-  };
+
 
   return (
     <div className="outterBox">
+     {/* condition for show data or add data button */}
       {formData.length > 0 ? (
         <div className="dis__form">
+          <div className="dis__form__top">
           <h2>User Data</h2>
-          <div className="">
+          <Link to="/form">
+            <button className="addDetails-but">Add Details</button>
+          </Link></div>
+          <div className="outter_dis">
             {formData.map((item, i) => (
               <div
                 key={i}
                 className="dis__details"
-                style={formData.length > 1 && i > 0 ? style : null}
               >
-                <h5><span>Name:</span> {item.name}</h5>
-                <h5>Mobile number: {item.mobile}</h5>
-                <h5>Email: {item.email}</h5>
-                <h5>
+                <ul>
+                  <li>
+                    <span>Name: </span> {item.name}
+                  </li>
+                  <li>
+                    <span>Mobile Number:</span> {item.mobile}
+                  </li>
+                  <li>
+                    <span>Email:</span> {item.email}
+                  </li>
+                </ul>
+                <div key={i} className="dis__details__edu">
                   {item.education.map((user, i) => (
-                    <div key={i} className="dis__details__edu">
-                      <p>Institution: {user.institution}</p>
-                      <p>Course: {user.course}</p>
-                      <p>Year: {user.year}</p>
-                    </div>
+                    <ul key={i}>
+                      <li>
+                        <span>Institution: </span>
+                        {user.institution}
+                      </li>
+                      <li>
+                        <span>Course: </span>
+                        {user.course}
+                      </li>
+                      <li>
+                        <span>Year: </span>
+                        {user.year}
+                      </li>
+                    </ul>
                   ))}
-                </h5>
+                </div>
 
-                <button className="editDetails" onClick={() => handleEdit(i)}>Edit Details</button>
+                <button className="editDetails" onClick={() => handleEdit(i)}>
+                  Edit Details
+                </button>
               </div>
             ))}
           </div>

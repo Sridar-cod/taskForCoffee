@@ -3,7 +3,7 @@ import React from "react";
 const MultiSteps = ({ step }) => {
   return (
     <div className="multiSteps ">
-      <div className="multiSteps__inner ">
+      <div className="multiSteps__inner">
         <div className="">
           <div
             className="multiSteps__inner__count"
@@ -13,13 +13,15 @@ const MultiSteps = ({ step }) => {
               }`,
             }}
           >
+            {/* <span style={{color:'white'}}> */}
             {step == 1 ? (
-              "1"
+              <span style={{color:'white'}}>1</span> 
             ) : (
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
               </svg>
             )}
+            {/* </span> */}
           </div>
           <b>Step 1</b>
         </div>
@@ -61,7 +63,7 @@ const MultiSteps = ({ step }) => {
               <b
                 style={{
                   color: `${
-                    step == 2 ? "black" : "rgba(163, 163, 163, 2.746)"
+                    step == 2 ? "white" : "rgba(163, 163, 163, 2.746)"
                   }`,
                 }}
               >
@@ -115,7 +117,7 @@ const MultiSteps = ({ step }) => {
               <b
                 style={{
                   color: `${
-                    step == 3 ? "black" : "rgba(163, 163, 163, 2.746)"
+                    step == 3 ? "white" : "rgba(163, 163, 163, 2.746)"
                   }`,
                 }}
               >

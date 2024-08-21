@@ -2,9 +2,16 @@ import React from "react";
 import MultiSteps from "./MultiSteps";
 
 const Preview = ({ prevStep, formData, nextStep, step }) => {
+  const successPop = () => {
+    return window.confirm("Are you sure you want to proceed?");
+  }
   const continueStep = (e) => {
+
     e.preventDefault();
-    nextStep();
+    if (successPop()) {
+      nextStep(); 
+    } 
+      
   };
 
   return (
@@ -18,7 +25,7 @@ const Preview = ({ prevStep, formData, nextStep, step }) => {
               <span>Name:</span> {formData.name}
             </p>
             <p>
-              <span>Mobile:</span> {formData.mobile}
+              <span>Mobile Number:</span> {formData.mobile}
             </p>
             <p>
               <span>Email:</span> {formData.email}
